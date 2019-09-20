@@ -1,0 +1,15 @@
+
+[Unit]
+Description=Tinc mesh
+After=network.target arkon.service
+Requires=arkon.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/true
+ExecReload=/bin/true
+WorkingDirectory=/etc/tinc
+
+[Install]
+WantedBy=multi-user.target

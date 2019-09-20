@@ -1,0 +1,22 @@
+
+[Unit]
+Description=Keeper timer
+After=local-fs.target network.target dovecot.service
+Requires=arkon.service
+
+[Timer]
+
+# after container startup
+OnBootSec=10min
+
+# then periodic self invocation
+OnUnitActiveSec=6hr
+
+# daily at 1 am
+#OnCalendar=*-*-* 01:00:00
+
+# hourly at the top
+#OnCalendar=*-*-*  *:00:00
+
+[Install]
+WantedBy=timers.target

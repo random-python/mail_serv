@@ -1,0 +1,17 @@
+
+[Unit]
+Description=Postfix server
+After=local-fs.target network.target dovecot.service arkon.service
+Requires=arkon.service
+
+[Service]
+Type=forking
+Restart=always
+RestartSec=5
+PIDFile=/var/spool/postfix/pid/master.pid
+ExecStart=/usr/bin/postfix start
+ExecStop=/usr/bin/postfix stop
+ExecReload=/usr/bin/postfix reload
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+
+[Unit]
+Description=Keeper service
+After=local-fs.target network.target dovecot.service arkon.service
+Requires=arkon.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=-/etc/conf.d/mail-keeper.conf
+ExecStart=/usr/bin/mail_serv_keeper
+
+[Install]
+WantedBy=multi-user.target

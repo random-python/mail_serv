@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+
+"""
+https://www.tinc-vpn.org/documentation/Scripts.html
+"""
+
+from mail_serv import tinker
+
+tinker.tinker_script_subnet_down()

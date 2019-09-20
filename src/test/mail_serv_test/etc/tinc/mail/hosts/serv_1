@@ -1,0 +1,8 @@
+
+Address = serv-1.company.com
+Port = 1200
+
+Subnet = 192.168.10.1/24
+
+-----BEGIN RSA PUBLIC KEY-----
+-----END RSA PUBLIC KEY-----
