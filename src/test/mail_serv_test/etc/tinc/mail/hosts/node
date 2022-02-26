@@ -1,0 +1,7 @@
+
+Port = 1200
+
+Subnet = 192.168.10.100/24
+
+-----BEGIN RSA PUBLIC KEY-----
+-----END RSA PUBLIC KEY-----

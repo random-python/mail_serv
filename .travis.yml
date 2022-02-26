@@ -1,0 +1,29 @@
+dist: xenial
+sudo: true
+language: python
+git:
+  depth: 10
+branches:
+  only:
+  - master
+  - /develop/
+matrix:
+  include:
+  - python: 3.7
+    env: TOXENV=py37
+install:
+- sudo apt-get -y update
+- sudo apt-get -y install dovecot-core
+- sudo apt-get -y install dovecot-imapd 
+- sudo apt-get -y install dovecot-pop3d 
+- sudo apt-get -y install dovecot-sieve
+- pip install tox
+script:
+- echo $HOME
+- echo $USER
+- uname -a
+- ip addr
+- python --version
+- dovecot --version
+- systemctl --version
+- tox

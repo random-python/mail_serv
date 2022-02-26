@@ -1,0 +1,22 @@
+[Unit]
+Description=OpenDKIM service
+After=network.target remote-fs.target nss-lookup.target arkon.service
+Requires=arkon.service
+
+[Service]
+#
+Type=forking
+Restart=always
+RestartSec=5
+#
+Group=postfix
+User=opendkim
+#
+RuntimeDirectory=opendkim opendkim/tempdir
+RuntimeDirectoryMode=0770
+#
+EnvironmentFile=-/etc/conf.d/opendkim.conf
+ExecStart=/usr/bin/opendkim -x /etc/opendkim/opendkim.conf
+
+[Install]
+WantedBy=multi-user.target

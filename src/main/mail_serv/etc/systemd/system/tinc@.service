@@ -1,0 +1,20 @@
+
+[Unit]
+Description=Tinc mesh %i
+PartOf=tinc.service
+ReloadPropagatedFrom=tinc.service
+After=network.target arkon.service
+Requires=arkon.service
+ 
+[Service]
+Type=simple
+Restart=always
+RestartSec=15
+TimeoutStopSec=5
+WorkingDirectory=/etc/tinc/%i
+ExecStart=/usr/bin/tincd -n %i -D
+ExecReload=/usr/bin/tincd -n %i -kHUP
+KillMode=mixed
+
+[Install]
+WantedBy=tinc.service

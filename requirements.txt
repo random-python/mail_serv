@@ -1,0 +1,4 @@
+
+inotify >= 0.2
+
+pyinstrument >= 4.1
